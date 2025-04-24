@@ -1,0 +1,244 @@
+Functions-1
+#1.	Write a program that defines a function count_lower_upper() that accepts a string and calculates the number of uppercase and lowercase alphabets in it. It should return these values as a dictionary. Call this function for some sample string.
+def count_lower_upper(string):
+    lower = 0
+    upper = 0
+    for char in string:
+        if char.isalpha():
+            if char.islower():
+                lower += 1
+            else:
+                upper += 1
+    return {'upper': upper, 'lower': lower}
+
+string = "Hello World! 123"
+result = count_lower_upper(string)
+print(result)
+
+#2.	Write a program that defines a function compute() that calculates the value of n + nn + nnn + nnnn, where n is digit received by the function. test the function for digits 4 to 7.
+def compute(n):
+    return n + int(str(n)*2) + int(str(n)*3) + int(str(n)*4)
+
+for i in range(4, 8):
+    print(compute(i))
+
+#3.	Write a program that defines a function create_array() to create and return a 3D array whose dimensions are passed to the function. Also initialize each element of this aray to a value passed to the function. e.g. create_array(3,4,5,n) where first three arguments are 3D array dimensions and 4th value is for initialing each value of the 3D array.
+def create_array(x, y, z, n):
+    return [[[n for _ in range(z)] for _ in range(y)] for _ in range(x)]
+
+
+print(create_array(3, 4, 5, 0))
+
+#4.	Write a program that defines a function sum_avg() to accept marks of five subjects and calculates total and average. It should return  directly both values.
+def sum_avg(marks):
+    total = sum(marks)
+    average = total / len(marks)
+    return total, average
+
+marks = [90, 80, 70, 60, 50]
+total, average = sum_avg(marks)
+print(f"Total: {total}, Average: {average}")
+
+#5.	Pangram is a sentence that uses every letter of the alphabet. Write a program to check whether a given string is pangram or not, through a user-defined function ispangram(). Test the function with “The quick brown fox jumps over the lazy dog” or “Crazy Fredrick bought many very exquisite opal jewels”. Hint: use set() to convert the string into a set of characters present in the string and use <= to check whether alphaset is a subset of the given string.
+def ispangram(string):
+    alphaset = set('abcdefghijklmnopqrstuvwxyz')
+    return alphaset <= set(string.lower())
+
+
+string = "The quick brown fox jumps over the lazy dog"
+print(ispangram(string))
+
+#6.	Write a function to create and return a list containing tuples of the form (x,x2,x3) for all x between 1 and given ending value (both inclusive).
+def create_list(n):
+    return [(x, x**2, x**3) for x in range(1, n+1)]
+
+
+print(create_list(5))
+
+#7.	A palindrome is a word or phrase that reads the same in both directions. Write a program that defines a function ispalindrome() which checks whether a given string is a palindrome or not. Ignore spaces and case mismatch while checking for palindrome.
+def ispalindrome(string):
+    string = string.replace(' ', '').lower()
+    return string == string[::-1]
+
+
+string = "Hello There"
+print(ispalindrome(string))
+
+#8.	Write a program that defines a function convert() that receives a string containing a sequence of whitespace separated words and returns a string after removing all duplicate words and sorting them alphanumerically. Hint: use set(), list () , sorted(), join().
+def convert(string):
+    return ' '.join(sorted(set(string.split())))
+
+
+string = "Quick brown fox jumps over the lazy dog"
+print(convert(string))
+
+#9.	Write a program that defines a function count_alpha_digits() that accepts a string and calculates the number of alphabets and digits in it. It should return these values as a dictionary.
+def count_alpha_digits(string):
+    alpha = 0
+    digits = 0
+    for char in string:
+        if char.isalpha():
+            alpha += 1
+        elif char.isdigit():
+            digits += 1
+    return {'alpha': alpha, 'digits': digits}
+
+string = "Hello World! 123"
+result = count_alpha_digits(string)
+print(result)
+
+#10.	Write a program that defines a function called frequency() which computes the frequency of words present in a string passed to it. The frequencies should be returned in sorted order of words in the string.
+def frequency(string):
+    words = string.split()
+    freq = {}
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    return sorted(freq.items())
+
+string = "Quick brown fox jumps over the lazy dog"
+print(frequency(string))
+
+#11.	Write a function create_list() that creates and returns a list which is an intersection of two lists passed to it.
+def create_list(list1, list2):
+    return [x for x in list1 if x in list2]
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+print(create_list(list1, list2))
+
+
+Functions-2
+#1.	If a positive integer is entered through the keyword, write a recursive function to obtain the prime factors of the number. 
+def prime_factors(n, i=2):
+    if n == 1:
+        return []
+    if n % i == 0:
+        return [i] + prime_factors(n//i, i)
+    return prime_factors(n, i+1)
+
+
+n = int(input("Enter a number: "))
+print(prime_factors(n))
+
+#2.	A positive integer is entered through the keyboard. Write a function to find its binary equivalent of this number.
+def binary(n):
+    if n == 0:
+        return ''
+    print(f"n: {n}, n//2: {n//2}, n%2: {n % 2}")
+    return binary(n//2) + str(n % 2)
+
+
+n = int(input("Enter a number: "))
+print(binary(n))
+
+#3.	A string is entered through the keyboard. Write a recursive function that counts the number of vowels in this string.
+def count_vowels(string):
+    if string == '':
+        return 0
+    if string[0].lower() in 'aeiou':
+        return 1 + count_vowels(string[1:])
+    return count_vowels(string[1:])
+
+string = input("Enter a string: ")
+print(count_vowels(string))
+
+#4.	Write a recursive function that reverses the list of numbers that it receives.
+def reverse_list(lst):
+    if len(lst) == 0:
+        return []
+    return [lst[-1]] + reverse_list(lst[:-1])
+
+lst = [1, 2, 3, 4, 5]
+print(reverse_list(lst))
+
+#5.	Calculate ab where a and b received through the keyword using recursion.
+def power(a, b):
+    if b == 0:
+        return 1
+    return a * power(a, b-1)
+
+
+a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+
+print(power(a, b))
+
+#6.	A list contains some negative and some positive values. Write a recursive function that sanitizes the list by replacing all negative numbers with 0.
+def sanitize_list(lst):
+    if len(lst) == 0:
+        return []
+    return [lst[0] if lst[0] >= 0 else 0] + sanitize_list(lst[1:])
+
+
+lst = [1, -2, 3, -4, 5]
+print(sanitize_list(lst))
+
+#7.	Write a recursive function to obtain average of all numbers present in a given list.
+def average(lst):
+    if len(lst) == 0:
+        return 0
+    return lst[0] + average(lst[1:])
+
+
+lst = [1, 2, 3, 4, 5]
+print(average(lst)/len(lst))
+
+#8.	Write a recursive function to obtain length of a given string.
+def length(string):
+    if string == '':
+        return 0
+    return 1 + length(string[1:])
+
+
+string = input("Enter a string: ")
+print(length(string))
+
+
+Functions-3
+#1.	Define three functions fun(), disp() and msg(). Store them in a list and call them one by one in a loop.
+def fun():
+    print("This is fun()")
+
+def disp():
+    print("This is disp()")
+
+def msg():
+    print("This is msg()")
+
+functions = [fun, disp, msg]
+
+for f in functions:
+    f()
+
+#2.	Suppose there are two lists, one containing numbers from 1 to 6, and other containing numbers from 6 to 1. Write a program to obtain a list that contains elements obtained by adding corresponding elements of the two lists. (hint: use map and lambda functions)
+list1 = [1, 2, 3, 4, 5, 6]
+list2 = [6, 5, 4, 3, 2, 1]
+
+result = list(map(lambda x, y: x + y, list1, list2))
+print("Resultant list:", result)
+
+#3.	Generate the list of 10 different random numbers between -15 and 15. Create a new list by obtaining square of all numbers in a list.
+import random
+
+nums = random.sample(range(-15, 16), 10)
+squares = [x**2 for x in nums]
+
+print("Random numbers:", nums)
+print("Squares:", squares)
+
+#4.	Consider the following list:
+#lst = ['madam','Python',"malayalam",12321]
+#Write a program to print those strings which are palindromes.
+lst = ['madam', 'Python', 'malayalam', 12321]
+
+for item in lst:
+    if str(item) == str(item)[::-1]:
+        print(f"Palindrome: {item}")
+
+#5.	A list contains names of Faculty Members. Write a program to filter out those names whose length is more than 8 characters.
+faculty = ['Dr. Sharma', 'Prof. Radhakrishnan', 'Ms. Patel', 'Dr. Suresh', 'Professor Mehta']
+long_names = list(filter(lambda name: len(name) > 8, faculty))
+
+print("Names longer than 8 characters:")
+for name in long_names:
+    print(name)
