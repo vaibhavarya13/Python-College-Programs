@@ -1,0 +1,123 @@
+#1.	Add two numbers.
+a=int(input("enter your number"))
+b=int(input("enter your number"))
+print(a+b)
+
+#2.	Subtract two numbers.
+a=int(input("enter your number"))
+b=int(input("enter your number"))
+print(a-b)
+
+#3.	Multiply two numbers.
+a=int(input("enter your number"))
+b=int(input("enter your number"))
+print(a-b)
+
+#4.	Divide two numbers.
+a=int(input("enter your number"))
+b=int(input("enter your number"))
+print(a/b)
+
+#5.	Add, multiply, subtract and divide two numbers.
+b=int(input("enter your number"))
+print("Your answers are")
+print(a+b,a*b,a-b,a/b,sep=',')
+
+#6.	Convert hours into minutes.
+b=float(input("enter hours"))
+print("No of minutes are ",60*b)
+
+#7.	Convert minutes into hours.
+b=float(input("enter minutes"))
+print("No of hours are ",b/60)
+
+#8.	Convert dollars into Rs. Where 1 $ = 48 Rs.
+b=float(input("enter dollars"))
+print("No of ruppees are ",b*48)
+
+#9.	Convert Rs. into dollars where 1 $ = 48 Rs.
+b=float(input("enter ruppees"))
+print("No of dollars are ",b/48)
+
+#10.	Convert dollars into pound where 1 $ = 48 Rs. And 1 pound = 70 Rs.
+b=float(input("enter dollars"))
+print("No of pounds are ",(b*48)/70)
+
+#11.	Convert grams into kg.
+b=float(input("enter grams"))
+print("No of kilos are ",b/1000)
+
+#12.	Convert kgs into grams.
+b=float(input("enter kilos"))
+print("No of grams are ",b*1000)
+
+#13.	Convert bytes into KB, MB and GB.
+size_in_bytes = int(input("Enter the size in bytes: "))
+KB = 1024
+MB = KB * 1024
+GB = MB * 1024
+kb = size_in_bytes / KB
+mb = size_in_bytes / MB
+gb = size_in_bytes / GB
+print(f"Bytes: {size_in_bytes} B")
+print(f"Kilobytes: {kb:.2f} KB")
+print(f"Megabytes: {mb:.2f} MB")
+print(f"Gigabytes: {gb:.2f} GB")
+
+#14.	Convert celcius into Fahrenheit. F = (9/5 * C) + 32
+b=float(input("enter celcius temp"))
+print("temp in farenheit will be  ",(9*b)/5 + 32)
+
+#15.	Convert Fahrenheit into celcius. C = 5/9 * (F – 32)
+b=float(input("enter farenheit"))
+print("temp in celcius is ",(5/9)*(b-32))
+
+#16.	Calculate interest where I = PRN/100.
+b=float(input("enter principal "))
+c=float(input("enter rate "))
+d=float(input("enter time "))
+print("interest is ",(b*c*d)/100)
+
+#17.	Calculate area & perimeter of a square. A = L^2, P = 4L
+length = float(input("Enter the length of the square's side: "))
+area = length ** 2
+perimeter = 4 * length
+print(f"Area of the square: {area}")
+print(f"Perimeter of the square: {perimeter}")
+
+#18.	Calculate area & perimeter of a rectangle. A = L*B, P = 2 (L+B)
+a=float(input("enter length "))
+b=float(input("enter width "))
+print("area is",a*b,"perimeter is",2(a+b))
+
+#19.	Calculate area of a circle. A = 22/7 * R * R
+radius = float(input("Enter the radius of the circle: "))
+area = (22 / 7) * radius * radius
+print(f"Area of the circle: {area}")
+
+#20.	Calculate area of a triangle. A = H*L/2
+a=float(input("enter length "))
+b=float(input("enter height "))
+print("area is",(a*b)/2)
+
+#21.	Calculate net salary 
+#where net salary = gross salary + allowance – deduction.
+#Allowances are 10% while deductions are 3% of gross salary.
+b=float(input("enter gross salary"))
+print("net salary is",1.13*b)
+
+#22.	Calculate net sales where net sales = gross sales – 10% discount of gross sales.
+b=float(input("enter gross sales"))
+print("net sales is",0.9*b)
+
+#23.	Calculate average of three subjects along with their total.
+a=float(input("enter a"))
+b=float(input("enter b"))
+c=float(input("enter c"))
+print("sum is",a+b+c,"average is",(a+b+c)/3)
+
+#24.	Swap two values.
+a=float(input("enter a "))
+b=float(input("enter b "))
+a,b=b,a
+print(a,b)
